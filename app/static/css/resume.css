@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+    padding: 45px 45px 45px 45px;
+}
+header {
+    text-align: center;
+}
+div > h3 {
+    border-bottom: 1.5px solid black;
+}
+table, td, th {
+    border: 1px solid;
+    /* width: 100%; */
+    border-collapse: collapse;
+    padding: 5px 20px;
+    
+}
+.project1day{
+    text-align: right;
+    margin-top: -3%;
+
+}
+.project2day{
+    text-align: right;
+    margin-top: -3%;
+
+}

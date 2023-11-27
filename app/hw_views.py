@@ -1,3 +1,6 @@
+#ธัญญาเรศ เบลล์
+#650510614
+#Sec 001
 import json
 from urllib.request import urlopen
 from flask import jsonify
