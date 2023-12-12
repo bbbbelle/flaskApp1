@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM 2.5 Calendar</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hw03.css') }}">
+</head>
+
+
+<body>
+  <h2 style="text-align: center;">PM 2.5 Calendar</h2>
+  <table style="width:80%">
+    <tr style="height:80px">
+        {% for i in week %}
+          <th> {{ i }}</th>
+        {% endfor %}
+    </tr>
+    <tr style="height:80px">
+      {% for item in day %}
+        <td>{{ item }}<br>
+        {% if loop.index == 7 %}
+          </tr><tr style="height:80px">
+        {% endif %}</td>
+      {% endfor %}
+
+  </tr>
+    
+    
+  </table>
+</body>
+
+
+</html>
