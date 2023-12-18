@@ -74,18 +74,20 @@ def hw04_aqicard():
     data_ubon = json.load(urlopen(ubon_url))
     list_a.append(new_name(data_ubon))
 
-    bnk_url = "https://api.waqi.info/feed/Bangkok/?token=7307ff81ad1f17008b5f034bd0765ae399be0f3a"
-    data_bnk = json.load(urlopen(bnk_url))
-    list_a.append(new_name(data_bnk))
-
     phuket_url = "https://api.waqi.info/feed/phuket/?token=7307ff81ad1f17008b5f034bd0765ae399be0f3a"
     data_phuket = json.load(urlopen(phuket_url))
     list_a.append(new_name(data_phuket))
 
+    bnk_url = "https://api.waqi.info/feed/Bangkok/?token=7307ff81ad1f17008b5f034bd0765ae399be0f3a"
+    data_bnk = json.load(urlopen(bnk_url))
+    list_a.append(new_name(data_bnk))
+
+    
+
     list_a[0]["city"] = "Chiangmai"
-    list_a[1]["city"] = "ubon-ratchathani"
-    list_a[2]["city"] = "Bangkok"
-    list_a[3]["city"] = "Phuket"
+    list_a[1]["city"] = "Ubon Ratchathani"
+    list_a[2]["city"] = "Phuket"
+    list_a[3]["city"] = "Bangkok"
 
 
     
