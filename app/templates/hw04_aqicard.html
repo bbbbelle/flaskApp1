@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/hw04.css') }}>
+
+
+
+    <title>AQI</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            {% for item in list_a %}
+            <div class="col-sm-12 col-md-6 col-xl-3 mb-3">
+                <div class="card">
+                    <div class="card-header">{{item["city"]}} air quality index</div>
+                    <div class="card-body {{item["color"] }}">
+                        <div class="row">
+                            <div class="col">
+                                <p class=".day-value">{{item["date"]}}</p>
+                                <h2 class=".aqi-value">{{item["aqi"]}}</h2>
+                            </div>
+                            <div class="col">
+                                <span class="icon-{{ item["color"] }}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="aqi-status">{{item["quality-class"]}}</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col day">
+                                {{item["forecast"][0]["day"]}}
+                                <span class="col badge {{item["forecast"][0]["color"] }} day-value">{{item["forecast"][0]["aqi"]}}</span> 
+                            </div>
+                            <div class="col day">
+                                {{item["forecast"][1]["day"]}}
+                                <span class="col badge {{item["forecast"][1]["color"] }} day-value">{{item["forecast"][1]["aqi"]}}</span> 
+                            </div>
+                            <div class="col day">
+                                {{item["forecast"][2]["day"]}}
+                                <span class="col badge {{item["forecast"][1]["color"] }} day-value">{{item["forecast"][2]["aqi"]}}</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>

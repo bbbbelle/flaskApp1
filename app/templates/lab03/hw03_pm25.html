@@ -13,12 +13,17 @@
 <body>
   <h2 style="text-align: center;">PM 2.5 Calendar</h2>
   <table style="width:80%">
-    <tr style="height:80px">
-        {% for i in week %}
-          <th> {{ i }}</th>
-        {% endfor %}
+    <tr style="height:80px"> 
+      <th>SUN</th>
+      <th>MON</th>
+      <th>TUE</th>
+      <th>WED</th>
+      <th>THU</th>
+      <th>FRI</th>
+      <th>SAT</th>
     </tr>
-    <tr style="height:80px">
+
+    <!-- <tr style="height:80px">
       {% for item in day %}
         <td>{{ item }}<br>
         {% if loop.index == 7 %}
@@ -26,7 +31,7 @@
         {% endif %}</td>
       {% endfor %}
 
-  </tr>
+  </tr> -->
     
     
   </table>
