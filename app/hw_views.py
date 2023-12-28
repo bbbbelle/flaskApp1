@@ -3,16 +3,26 @@
 #Sec 001
 import json
 from urllib.request import urlopen
+
+from flask import jsonify, render_template, request, url_for, flash, redirect
+from flask import jsonify
 from flask import jsonify, render_template
+
+
 from app import app
+from app import hw_views
+from app.forms import forms
 import datetime
+
+# from app.forms import forms
+# from .hw_forms import RegistrationForm
+
+import bcrypt
 
 
 @app.route('/weather')
 def hw01_localweather():
     return app.send_static_file('hw01_localweather.html')
-
-
 
 
 @app.route("/api/weather")
@@ -189,4 +199,58 @@ def new_name(data_json):
         "color" : color[0]
         }
     return d_c
+def read_file(filename, mode="rt"):
+    with open(filename, mode, encoding='utf-8') as fin:
+        return fin.read()
+
+
+def write_file(filename, contents, mode="wt"):
+    with open(filename, mode, encoding="utf-8") as fout:
+        fout.write(contents)
+@app.route("/hw06/register", methods=('GET', 'POST'))
+def hw06_register():
+    form = forms.RegistrationForm()
+    raw_json = read_file('app/data/users.json')
+    duplicate = False
+    if form.validate_on_submit():
+        d_list = json.loads(raw_json)
+        
+        if request.method == 'POST':
+            username = form.Username.data.lower()
+            email = form.Email.data.lower()
+            password = form.Password.data
     
+            for i in d_list:
+                if i["username"].lower() == username:
+                    flash("Username already exists", "error")
+                    duplicate = True
+                    break
+            for j in d_list:
+                if j["email"].lower() == email:
+                    flash("Email already exists", "error")
+                    duplicate = True
+                    break
+
+            if duplicate == False:
+                # converting password to array of bytes 
+                bytes = password.encode('utf-8') 
+                # generating the salt 
+                salt = bcrypt.gensalt() 
+                # Hashing the password 
+                hash = bcrypt.hashpw(bytes, salt)
+
+                d_list.append({'username': username, 'email': email, 'password': str(hash)})
+                print(d_list)
+                write_file('app/data/users.json',
+                        json.dumps(d_list, indent=4))
+                return redirect(url_for('hw06_users'))
+    return render_template('lab06/hw06_register.html', form=form)
+
+@app.route('/hw06/users')
+def hw06_users():
+    raw_json = read_file('app/data/users.json')
+    d_list = json.loads(raw_json)
+    return render_template('lab06/hw06_users.html', d_list=d_list)
+
+
+   

@@ -1,0 +1,70 @@
+{% extends 'lab06/base.html' %}
+
+{% block content %}
+<h1 class ="register-user">{% block title %} Register New User {% endblock %}</h1>
+<form method="POST" action="/hw06/register">
+    {{ form.csrf_token }}
+    <div class="container-fluid">
+        <div class= "form-container">
+            <div class ="row">
+                <div class ="form-group">
+                    
+                    {{ form.Username.label }}
+                    {{ form.Username(size=20) }}
+                    {% if form.Username.errors %}
+                    <ul class="errors">
+                        {% for error in form.Username.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class ="row">
+                <div class ="form-group">
+                    {{ form.Email.label }}
+                    {{ form.Email(size=20) }}
+                    {% if form.Email.errors %}
+                    <ul class="errors">
+                        {% for error in form.Email.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class ="row">
+                <div class ="form-group">
+                    {{ form.Password.label }}
+                    {{ form.Password(size=20) }}
+                    {% if form.Password.errors %}
+                    <ul class="errors">
+                        {% for error in form.Password.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class ="row">
+                <div class ="form-group">
+                    {{ form.Confirm_Password.label }}
+                    {{ form.Confirm_Password(size=20) }}
+                    {% if form.Confirm_Password.errors %}
+                    <ul class="errors">
+                        {% for error in form.Confirm_Password.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class ="row">
+                <div class ="form-group">
+                    <input type="submit" value="Sign up">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

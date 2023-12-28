@@ -1,17 +1,23 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, TextAreaField, IntegerField, BooleanField,
-                     RadioField)
+                     RadioField,EmailField,PasswordField )
+from wtforms import validators
 from wtforms.validators import InputRequired, Length
 
 
-class CourseForm(FlaskForm):
-    title = StringField('Title', validators=[InputRequired(),
-                                             Length(min=10, max=100)])
-    description = TextAreaField('Course Description',
-                                validators=[InputRequired(),
-                                            Length(max=200)])
-    price = IntegerField('Price', validators=[InputRequired()])
-    level = RadioField('Level',
-                       choices=['Beginner', 'Intermediate', 'Advanced'],
-                       validators=[InputRequired()])
-    available = BooleanField('Available', default='checked')
+
+
+
+class RegistrationForm(FlaskForm):
+    Username = StringField('Username', validators=[InputRequired(),
+                                             Length(min=2, max=20)])
+    Email = EmailField('Email', validators=[InputRequired(),
+                                             Length(min=10, max=100), validators.Email(message='Invalid Email')])
+    
+    Password = PasswordField('Password', validators=[InputRequired(),
+                                             Length(min=1),validators.Regexp(r'.*\d.*', message='Password must contain at least one number')])
+    Confirm_Password = PasswordField('Confirm Password', validators=[InputRequired(),
+                                             Length(min=1), validators.EqualTo('Password', message='Passwords must match')])
+
+
+ 
