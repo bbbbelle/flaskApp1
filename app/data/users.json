@@ -23,5 +23,30 @@
         "username": "c1",
         "email": "c1@gamil.com",
         "password": "b'$2b$12$JtZOD3R9oOCrqzrMoFHQue7iXWEEVm/iZhztzyE2ozl/gHxKfq3wG'"
+    },
+    {
+        "username": "bell",
+        "email": "bell@gamil.com",
+        "password": "b'$2b$12$1WP8FtssaJocR5Y/SMTDOuII4TX9Z4tYJQxWkD.oqyoKF7X52dPFy'"
+    },
+    {
+        "username": "t6",
+        "email": "t@h.com",
+        "password": "b'$2b$12$zWkrSngcwJY3nHJCpzJFaOj14sW7ynspCUv6PpnSVDGlq3dU1u4Ca'"
+    },
+    {
+        "username": "igigk",
+        "email": "ty@localhost.com",
+        "password": "b'$2b$12$GmYzRhk5rNuUVizOuRxKme5w5ZQR8Z5yedRQF12Fz2jd66c7u3Vju'"
+    },
+    {
+        "username": "thanyared",
+        "email": "thanyared_cho@gmail.com",
+        "password": "b'$2b$12$gUL07vT4UvfR1oOtHuQiIOjh/NtLkkt8X5VkPXlwIecTL9xbGnL8K'"
+    },
+    {
+        "username": "belle",
+        "email": "mj@gmail.com",
+        "password": "b'$2b$12$IcLp/iKxEAkBPolZzSIHEuaP3uZrlosWmzWDNo1k4Px3k9381dhMu'"
     }
 ]

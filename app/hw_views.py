@@ -212,7 +212,7 @@ def hw06_register():
     form = forms.RegistrationForm()
     raw_json = read_file('app/data/users.json')
     duplicate = False
-    if form.validate_on_submit():
+    if form.validate_on_submit() :
         d_list = json.loads(raw_json)
         
         if request.method == 'POST':
@@ -240,7 +240,6 @@ def hw06_register():
                 hash = bcrypt.hashpw(bytes, salt)
 
                 d_list.append({'username': username, 'email': email, 'password': str(hash)})
-                print(d_list)
                 write_file('app/data/users.json',
                         json.dumps(d_list, indent=4))
                 return redirect(url_for('hw06_users'))

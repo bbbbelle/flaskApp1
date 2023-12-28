@@ -10,9 +10,9 @@ from wtforms.validators import InputRequired, Length
 
 class RegistrationForm(FlaskForm):
     Username = StringField('Username', validators=[InputRequired(),
-                                             Length(min=2, max=20)])
+                                             Length(min=2,max=20)])
     Email = EmailField('Email', validators=[InputRequired(),
-                                             Length(min=10, max=100), validators.Email(message='Invalid Email')])
+                                             validators.Email(message='Invalid Email')])
     
     Password = PasswordField('Password', validators=[InputRequired(),
                                              Length(min=1),validators.Regexp(r'.*\d.*', message='Password must contain at least one number')])
