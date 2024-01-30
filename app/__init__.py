@@ -13,5 +13,6 @@ app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = \
     '116333cef87fdb07af8e7a976ec8666a61bd7d7d75afbb32'
 
+app.config['JSON_AS_ASCII'] = False
 
 from app import views # noqa

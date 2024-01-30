@@ -1,0 +1,38 @@
+[
+    {
+        "firstname": "สมชาย",
+        "lastname": "ทรงแบด",
+        "phone": "081 123 4567",
+        "postcode": "50270",
+        "subdist": "บ้านทับ",
+        "district": "แม่แจ่ม",
+        "province": "เชียงใหม่"
+    },
+    {
+        "firstname": "ส้มโอ",
+        "lastname": "โอเค",
+        "phone": "0899999999",
+        "postcode": "50200",
+        "subdist": "สุเทพ",
+        "district": "เมืองเชียงใหม่",
+        "province": "เชียงใหม่"
+    },
+    {
+        "firstname": "than",
+        "lastname": "h",
+        "phone": "095 666 888850",
+        "postcode": "50200",
+        "subdist": "ศรีภูมิ",
+        "district": "เมืองเชียงใหม่",
+        "province": "เชียงใหม่"
+    },
+    {
+        "firstname": "bell",
+        "lastname": "you",
+        "phone": "095 666 8881",
+        "postcode": "50170",
+        "subdist": "เชียงดาว",
+        "district": "เชียงดาว",
+        "province": "เชียงใหม่"
+    }
+]
