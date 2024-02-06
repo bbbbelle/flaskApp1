@@ -1,7 +1,12 @@
+import os
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__, static_folder='static')
 app.url_map.strict_slashes = False
+
+
 app.jinja_options = app.jinja_options.copy()
 app.jinja_options.update({
     'trim_blocks': True,
@@ -11,8 +16,18 @@ app.jinja_options.update({
 
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = \
-    '116333cef87fdb07af8e7a976ec8666a61bd7d7d75afbb32'
+    'b1859c806f35f87b8beb87bb27fd6dffe7ec382f3c68c5b3'
 
 app.config['JSON_AS_ASCII'] = False
 
-from app import views # noqa
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite://")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+# Creating an SQLAlchemy instance
+db = SQLAlchemy(app)
+
+
+from app import views  # noqa
