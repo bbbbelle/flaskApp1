@@ -120,6 +120,7 @@
         refresh_table(contact_data);
         clearForm();
       });
+      toggleView();
     });
 
 
@@ -153,6 +154,7 @@
       $('#lastname').val(row.lastname);
       $('#phone').val(row.phone);
       $('#entryid').val(row.id);
+      toggleView();
     }
 
     function removeItem(row) {
