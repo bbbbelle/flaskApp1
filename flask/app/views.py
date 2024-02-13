@@ -32,6 +32,7 @@ def crash():
     return 1/0
 
 @app.route('/lab10', methods=('GET', 'POST'))
+@login_required
 def lab10_phonebook():
     if request.method == 'POST':
         result = request.form.to_dict()
@@ -92,15 +93,18 @@ def lab10_db_contacts():
     return jsonify(contacts)
 
 @app.route('/lab10/remove_contact', methods=('GET', 'POST'))
+@login_required
 def lab10_remove_contacts():
     app.logger.debug("LAB10 - REMOVE")
     if request.method == 'POST':
         result = request.form.to_dict()
         id_ = result.get('id', '')
         try:
-            contact = Contact.query.get(id_)
-            db.session.delete(contact)
-            db.session.commit()
+            
+            contact = PrivateContact.query.get(id_)
+            if contact.owner_id == current_user.id:
+                db.session.delete(contact)
+                db.session.commit()
         except Exception as ex:
            app.logger.error(f"Error removing contact with id {id_}: {ex}")
            raise
