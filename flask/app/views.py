@@ -13,6 +13,7 @@ from app import db
 from app import login_manager
 from app.models.contact import Contact
 from app.models.authuser import AuthUser, PrivateContact
+
 from app import oauth
 from app import hw_views
 
